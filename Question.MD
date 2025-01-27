@@ -182,6 +182,7 @@ Which of the following represents the first step that the ML team needs to follo
 - [ ] Create training set, validation set and test set
 
 # Domain : Data Engineering
+
 **Question 1:**
 An analytics company wants to create a text summarization model based on the SageMaker seq2seq algorithm. However the training data is in the form of 1TB of flat files whereas seq2seq only expects RecordIO-Protobuf format.
 
@@ -203,7 +204,7 @@ For the given use case, you can use an AWS Glue job to extract, transform, and l
 
 
 
-**Question 17:**
+**Question 3:**
 Which of the following represent the correct statements regarding the IAM features available with Amazon SageMaker? (Select two)
 
 - [x] With IAM identity-based policies, you can specify allowed or denied actions and resources as well as the conditions under which actions are allowed or denied for Amazon SageMaker
@@ -212,3 +213,25 @@ Which of the following represent the correct statements regarding the IAM featur
 Amazon SageMaker supports authorization based on resource tags - You can attach tags to SageMaker resources or pass tags in a request to SageMaker. To control access based on tags, you provide tag information in the condition element of a policy using the sagemaker:ResourceTag/key-name, aws:RequestTag/key-name, or aws:TagKeys condition keys.
 
 With IAM identity-based policies, you can specify allowed or denied actions and resources as well as the conditions under which actions are allowed or denied for Amazon SageMaker - With IAM identity-based policies, you can specify allowed or denied actions and resources as well as the conditions under which actions are allowed or denied. SageMaker supports specific actions, resources, and condition keys. Administrators can use AWS JSON policies to specify who has access to what. That is, which principal can perform actions on what resources, and under what conditions. The Action element of a JSON policy describes the actions that you can use to allow or deny access in a policy.
+
+**Question 4:**
+How many shards would a Kinesis Data Streams application need if the average record size is 500KB and 2 records per second are being written into this application that has 7 consumers?
+
+- [x] 4
+```
+Overall explanation
+number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)
+
+incoming_write_bandwidth_in_KB = average_data_size_in_KB multiplied by the number_of_records_per_seconds. = 500 * 2 = 1000
+
+outgoing_read_bandwidth_in_KB = incoming_write_bandwidth_in_KB multiplied by the number_of_consumers = 1000 * 7 = 7000
+
+So, number_of_shards = max(1000/1000, 7000/2000) = max(1, 3.5) = 4
+```
+
+**Question 5:**
+The data science team at an email marketing company has created a data lake with raw and refined zones. The raw zone has the data as it arrives from the source, however, the team wants to de-duplicate the data before it is written into the refined zone.
+
+What is the best way to accomplish this with the least amount of development time and infrastructure maintenance effort?
+
+- [x] Invoke an AWS Glue ML Transforms job when new data arrives into raw zone so that de-duplicated records can be written into the refined zone
