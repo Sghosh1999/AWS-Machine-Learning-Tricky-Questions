@@ -111,3 +111,104 @@ How should the Data Science team configure the notebook instance placement to me
 - [ ] Associate the Amazon SageMaker notebook with a private subnet in a VPC. Use IAM policies to grant access to Amazon S3 and Amazon SageMaker.
 - [x] Associate the Amazon SageMaker notebook with a private subnet in a VP Ensure the VPC has S3 VPC endpoints and Amazon SageMaker VPC endpoints attached to it.
 - [ ] Associate the Amazon SageMaker notebook with a private subnet in a VPC. Ensure the VPC has a NAT gateway and an associated security group allowing only outbound connections to Amazon S3 and Amazon SageMaker.
+
+**Question 11:**
+A Data Scientist needs to migrate an existing on-premises ETL process to the cloud. The current process runs at regular time intervals and uses PySpark to combine and format multiple large data sources into a single consolidated output for downstream processing.
+
+The Data Scientist has been given the following requirements to the cloud solution:
+•Combine multiple data sources.
+•Reuse existing PySpark logic.
+•Run the solution on the existing schedule.
+•Minimize the number of servers that will need to be managed.
+
+Which architecture should the Data Scientist use to build this solution?
+
+Which architecture should the Data Scientist use to build this solution?
+
+- [ ] Write the raw data to Amazon S3. Schedule an AWS Lambda function to submit a Spark step to a persistent Amazon EMR cluster based on the existing schedule. Use the existing PySpark logic to run the ETL job on the EMR cluster. Output the results to a “processed” location in Amazon S3 that is accessible for downstream use.
+- [x] Write the raw data to Amazon S3. Create an AWS Glue ETL job to perform the ETL processing against the input data. Write the ETL job in PySpark to leverage the existing logic. Create a new AWS Glue trigger to trigger the ETL job based on the existing schedule. Configure the output target of the ETL job to write to a “processed” location in Amazon S3 that is accessible for downstream use.
+- [ ] Write the raw data to Amazon S3. Schedule an AWS Lambda function to run on the existing schedule and process the input data from Amazon S3. Write the Lambda logic in Python and implement the existing PySpark logic to perform the ETL process. Have the Lambda function output the results to a “processed” location in Amazon S3 that is accessible for downstream use.
+- [ ] Use Amazon Kinesis Data Analytics to stream the input data and perform real-time SQL queries against the stream to carry out the required transformations within the stream. Deliver the output results to a “processed” location in Amazon S3 that is accessible for downstream use.
+Answer(s): B
+
+**Question 12:**
+
+A Machine Learning team runs its own training algorithm on Amazon SageMaker. The training algorithm requires external assets. The team needs to submit both its own algorithm code and algorithm-specific parameters to Amazon SageMaker.
+
+What combination of services should the team use to build a custom algorithm in Amazon SageMaker? (Choose two.)
+
+- [ ] AWS Secrets Manager
+- [ ] AWS CodeStar
+- [x] Amazon ECR
+- [ ] Amazon ECS
+- [x] Amazon S3
+Answer(s): C,E
+
+**Question 13:**
+A trucking company is collecting live image data from its fleet of trucks across the globe. The data is growing rapidly and approximately 100 GB of new data is generated every day. The company wants to explore machine learning uses cases while ensuring the data is only accessible to specific IAM users.
+
+Which storage option provides the most processing flexibility and will allow access control with IAM?
+
+- [ ] Use a database, such as Amazon DynamoDB, to store the images, and set the IAM policies to restrict access to only the desired IAM users.
+- [x] Use an Amazon S3-backed data lake to store the raw images, and set up the permissions using bucket policies.
+- [ ] Setup up Amazon EMR with Hadoop Distributed File System (HDFS) to store the files, and restrict access to the EMR instances using IAM policies.
+- [ ] Configure Amazon EFS with IAM policies to make the data available to Amazon EC2 instances owned by the IAM users.
+
+# Domain : Modeling
+**Question 14:**
+A retail organization wants to forecast the sales of its flagship products for the upcoming festive season. They have the last 5 years of sales data for these products.
+
+As an ML specialist, which algorithm would you use to implement the forecasting solution?
+
+- [x] Linear Learner
+- [ ] Random Cut Forest
+
+**Random Cut Forest** - Amazon SageMaker Random Cut Forest (RCF) is an unsupervised algorithm for detecting anomalous/fraud detection data points within a data set. These are observations which diverge from otherwise well-structured or patterned data. Anomalies can manifest as unexpected spikes in time series data, breaks in periodicity, or unclassifiable data points. They are easy to describe in that, when viewed in a plot, they are often easily distinguishable from the "regular" data. Including these anomalies in a data set can drastically increase the complexity of a machine learning task since the "regular" data can often be described with a simple model.
+With each data point, RCF associates an anomaly score. Low score values indicate that the data point is considered "normal." High values indicate the presence of an anomaly in the data. The definitions of "low" and "high" depend on the application but common practice suggests that scores beyond three standard deviations from the mean score are considered anomalous.
+
+**IP Insights**
+Amazon SageMaker IP Insights is an unsupervised learning algorithm that learns the usage patterns for IPv4 addresses. It is designed to capture associations between IPv4 addresses and various entities, such as user IDs or account numbers. You can use it to identify a user attempting to log into a web service from an anomalous IP address, for example.
+
+**Factorization Machines** - The Factorization Machines algorithm is a general-purpose supervised learning algorithm that you can use for both classification and regression tasks. It is an extension of a linear model that is designed to capture interactions between features within high dimensional sparse datasets economically. For example, in a click prediction system, the Factorization Machines model can capture click rate patterns observed when ads from a certain ad-category are placed on pages from a certain page-category. Factorization machines are a good choice for tasks dealing with high dimensional sparse datasets, such as click prediction and item recommendation.
+
+
+# Domain : Exploatory Data Analysis
+**Question 15:**
+The data engineering team at a medical research company has handed over the cleaned and prepared dataset for DNA sequencing to the Machine Learning team. The ML team wants to use this dataset for building a regression model based on the SageMaker Linear Learner algorithm.
+
+Which of the following represents the first step that the ML team needs to follow for the entire dataset?
+
+- [x] Shuffle the dataset
+- [ ] Create training set, validation set and test set
+
+# Domain : Data Engineering
+**Question 1:**
+An analytics company wants to create a text summarization model based on the SageMaker seq2seq algorithm. However the training data is in the form of 1TB of flat files whereas seq2seq only expects RecordIO-Protobuf format.
+
+As an ML Specialist, which of the following solutions would you recommend?
+
+- [x] Spin-up an Apache Spark EMR cluster to transform the data from flat files into RecordIO-Protobuf format and save it on S3. This data can be used by seq2seq based model for training
+- [ ] Use AWS Step function with Lambda to write the data in RecordIO-Protobuf format on S3. This data can be used by seq2seq based model for training
+
+**Question 2:**
+An e-commerce company is looking for a solution that detects anomalies in order to identify fraudulent transactions. The company utilizes Amazon Kinesis to transfer JSON-formatted transaction records from its on-premises database to Amazon S3. The existing dataset comprises 200-column wide records for each transaction. To identify fraudulent transactions, the solution needs to analyze just 20 of these columns.
+
+Which of the following would you suggest as the lowest-cost solution that needs the least development work and offers out-of-the-box anomaly detection functionality?
+
+- [x] Transform the data from JSON format to Apache Parquet format using an AWS Glue job. Configure AWS Glue crawlers to discover the schema and build the AWS Glue Data Catalog. Leverage Amazon Athena to create a table with a subset of columns. Set up Amazon QuickSight for visual analysis of the data and identify fraudulent transactions using QuickSight's built-in machine learning-powered anomaly detection
+
+For the given use case, you can use an AWS Glue job to extract, transform, and load (ETL) data from the data source (in JSON format) to the data target (in Parquet format). You can then use an AWS Glue crawler, which is a program that connects to a data store (source or target) such as Amazon S3, progresses through a prioritized list of classifiers to determine the schema for your data, and then creates metadata tables in the AWS Glue Data Catalog.
+
+**Amazon Athena** is an interactive query service that makes it easy to analyze data directly in Amazon Simple Storage Service (Amazon S3) using standard SQL. Athena is serverless, so there is no infrastructure to set up or manage, and you pay only for the queries you run, thereby making this solution really low cost. You can also use Athena to build a table with only the subset of columns that are required for downstream analysis.
+
+
+
+**Question 17:**
+Which of the following represent the correct statements regarding the IAM features available with Amazon SageMaker? (Select two)
+
+- [x] With IAM identity-based policies, you can specify allowed or denied actions and resources as well as the conditions under which actions are allowed or denied for Amazon SageMaker
+- [x] Amazon SageMaker supports authorization based on resource tags
+
+Amazon SageMaker supports authorization based on resource tags - You can attach tags to SageMaker resources or pass tags in a request to SageMaker. To control access based on tags, you provide tag information in the condition element of a policy using the sagemaker:ResourceTag/key-name, aws:RequestTag/key-name, or aws:TagKeys condition keys.
+
+With IAM identity-based policies, you can specify allowed or denied actions and resources as well as the conditions under which actions are allowed or denied for Amazon SageMaker - With IAM identity-based policies, you can specify allowed or denied actions and resources as well as the conditions under which actions are allowed or denied. SageMaker supports specific actions, resources, and condition keys. Administrators can use AWS JSON policies to specify who has access to what. That is, which principal can perform actions on what resources, and under what conditions. The Action element of a JSON policy describes the actions that you can use to allow or deny access in a policy.
