@@ -78,3 +78,21 @@ Only three of the built-in SageMaker algorithms support incremental training. Ca
 - [x] Semantic Segmentation
 - [x] Object Detection
 - [x] Image Classification
+
+**Question 9**
+An autonomous vehicle technology company is seeking an AWS solution capable of classifying street sign images with minimal latency, handling thousands of images each second. Which AWS services would most effectively fulfill this requirement?
+
+- [x] Amazon SageMaker, Neo, Greengrass
+- [ ] Amazon Rekognition, Lambda, IoT Core
+
+**Question 10**
+In Amazon Elastic File System (EFS), when monitoring performance metrics indicates that the IOPS usage is nearing 100%, which of the following actions should be taken to effectively manage the file system's performance?
+
+- [x] Increase the provisioned throughput of the EFS file system if it is in the provisioned mode.
+- [ ] Reconfigure attached EC2 instances to use Elastic Block Store (EBS) instead of EFS.
+
+1. For Bursting Throughput Mode: If `PercentIOLimit` is approaching 100%, increasing the total storage size will automatically raise the baseline performance and burstable IOPS capacity. This option leverages the natural scaling feature of Bursting Throughput mode.
+
+
+
+2. For Provisioned Throughput Mode: Alternatively, if the file system is already in Provisioned Throughput mode or if a more immediate and predictable performance enhancement is needed, manually adjust the `ProvisionedThroughput` setting. This direct intervention ensures performance does not degrade as the `PercentIOLimit` approaches its maximum.
