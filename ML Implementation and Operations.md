@@ -96,3 +96,21 @@ In Amazon Elastic File System (EFS), when monitoring performance metrics indicat
 
 
 2. For Provisioned Throughput Mode: Alternatively, if the file system is already in Provisioned Throughput mode or if a more immediate and predictable performance enhancement is needed, manually adjust the `ProvisionedThroughput` setting. This direct intervention ensures performance does not degrade as the `PercentIOLimit` approaches its maximum.
+
+**Question 11**
+A company aims to enhance the security and management of its machine learning projects by restricting access to Amazon SageMaker notebook instances to certain IAM groups. What method should be employed to ensure that only designated IAM groups have the necessary permissions to access and interact with SageMaker notebooks?
+
+- [x] Create an IAM policy with specific permissions for SageMaker, and attach it to the designated IAM groups, ensuring only members of those groups have the necessary permissions.
+
+Overall explanation
+The correct approach is to manage access to SageMaker notebook instances using IAM policies. By creating an IAM policy that specifically defines permissions for accessing SageMaker notebooks (such as sagemaker:CreateNotebookInstance, sagemaker:StartNotebookInstance, and sagemaker:StopNotebookInstance), you can ensure that only the IAM groups that have this policy attached can access and interact with the notebooks. This method provides fine-grained control over who can use SageMaker and is a core AWS security best practice for managing resources.
+
+**Question 12**
+A healthcare analytics firm is leveraging Amazon SageMaker to train machine learning models on sensitive patient data. To comply with strict data privacy regulations, the training jobs are configured to run within a Virtual Private Cloud (VPC) that lacks direct internet access. What method should be employed to ensure these training jobs can securely access training data stored in an Amazon S3 bucket?
+
+- [x] Utilize VPC endpoints to allow direct, private connections to Amazon S3 from the VPC
+- [ ] Configure an Internet Gateway in the VPC for SageMaker to access S3 buckets over the internet.
+
+VPC endpoints facilitate secure and private communications between AWS services without traversing the public internet, making it the most suitable option for accessing S3 from a VPC without internet access. This aligns with AWS best practices for accessing S3 from private VPCs securely.
+
+AWS Direct Connect is used to establish a private connection between an on-premises network and AWS, not within AWS services. Moreover, it's more complex and not required for the scenario of accessing S3 from SageMaker within a VPC.

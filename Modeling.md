@@ -64,4 +64,15 @@ What approach should the company take to stop further breaches from these specif
 - [x] Use a rule-based solution.
 - [ ] Use IP insights with (users/ID) pairs as input in order to output a score in the future that infers how anomalous the pattern of the event is.
 
+Overall explanation
+The company wants to stop the breaches from specific IP addresses only. So, using IP insights for training a model is not clearly the best solution.
+
+**Question 7**
+A large library decided to shift its activity to be fully internet-based as they will no longer have a physical location. The books will be presented as a soft copy on their newly established website. The library also aims to build a machine learning model to help their users search for books faster. They want to recommend books to a user that are similar to books they have read.
+
+Which type of algorithm should the library use to implement such service?
+
+- [x] Content based filtering.
+- [ ] Collaborative filtering.
+
 
