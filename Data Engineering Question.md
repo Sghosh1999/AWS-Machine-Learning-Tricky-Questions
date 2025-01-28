@@ -97,3 +97,12 @@ Using Amazon Redshift Spectrum, you can efficiently query and retrieve structure
 
 Redshift Spectrum is a built-in feature of Amazon Redshift, and your existing queries and BI tools will continue to work seamlessly. Under the covers, AWS manages a fleet of thousands of Redshift Spectrum nodes spread across multiple Availability Zones. These are transparently scaled and allocated to your queries based on the data that you need to process, with no provisioning or commitments. Redshift Spectrum is also highly concurrent—you can access your Amazon S3 data from any number of Amazon Redshift clusters.
 
+**Question 8**
+A machine learning company uses a hybrid architecture where it has some servers on-premises and others on the AWS cloud. The company receives data on a daily basis collected from other companies to train and deploy custom machine learning models.
+
+The company wants to use a manageable, automated service which could move data over the network, while handling encryption, between their on-premises storage and AWS storage services, and also between their AWS storage services.
+
+Which service should the company use?
+
+- [x] AWS DataSync.
+

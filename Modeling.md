@@ -56,4 +56,12 @@ When you use automatic model tuning, the linear learner internal tuning mechanis
 
 Automatic model tuning, also known as hyperparameter tuning, finds the best version of a model by running many jobs that test a range of hyperparameters on your dataset. You choose the tunable hyperparameters, a range of values for each, and an objective metric. You choose the objective metric from the metrics that the algorithm computes. Automatic model tuning searches the hyperparameters chosen to find the combination of values that result in the model that optimizes the objective metric. When you use automatic model tuning, the linear learner internal tuning mechanism is turned off automatically. This sets the number of parallel models, num_models, to 1.
 
+**Question 6**
+A company has a history of their access logs stored in their S3 bucket. The company’s data engineer filtered out the dataset to only contain pairs of (user/IP) where it contains the name of the IAM user along with the IP address he used to access a specific service. The company recently suffered from a data breach coming from specific IP addresses which were recorded by the security team.
+
+What approach should the company take to stop further breaches from these specific IP addresses in the least amount of time?
+
+- [x] Use a rule-based solution.
+- [ ] Use IP insights with (users/ID) pairs as input in order to output a score in the future that infers how anomalous the pattern of the event is.
+
 
