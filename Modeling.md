@@ -20,4 +20,40 @@ A financial services company has the goal of reducing fraud transactions by 10% 
 
 - [x] Precision-Recall Area-Under-Curve (PR AUC)
 
+**Question3**
+You are developing a computer vision system for a factory assembly line. The system can trigger a robotic arm to correct the orientation of the product components whenever it detects a misalignment.
+
+Which SageMaker algorithm should be used in this computer vision system?
+- [x] Semantic Segmentation
+- [ ] Reinforcement Learning (RL)
+- [ ] Object Detection
+- [ ] Image Classification
+
+Semantic Segmentation
+
+The SageMaker semantic segmentation algorithm provides a fine-grained, pixel-level approach to developing computer vision applications. It tags every pixel in an image with a class label from a predefined set of classes. Tagging is fundamental for understanding scenes, which is critical to an increasing number of computer vision applications, such as self-driving vehicles, medical imaging diagnostics, and robot sensing.
+
+Because the semantic segmentation algorithm classifies every pixel in an image, it also provides information about the shapes of the objects contained in the image. The segmentation output is represented as a grayscale image, called a segmentation mask. A segmentation mask is a grayscale image with the same shape as the input image.
+
+*Semantic Segmentation is used for pixel level analysis of an image and it can be used in this computer vision system to detect misalignment*
+
+**Question4**
+The data science team at an analytics company is working on a linear regression model and it observes that the training error as well as the test error are high, implying that the model has a bias.
+
+Which of the following L1 and L2 regularization optimizations may be done to resolve this issue? (Select two)
+
+- [ ] Increase L1 regularization
+- [x] Use L2 regularization and drop L1 regularization
+- [ ] L1 and L2 regularization are not required, just get more training data
+- [ ] Decrease L1 regularization
+
+**Question 5**
+Which of the following statements is true for the Sagemaker Linear Learner algorithm?
+
+- [x] When you use automatic model tuning, the linear learner internal tuning mechanism is turned off automatically. This sets the number of parallel models, num_models, to 1
+
+When you use automatic model tuning, the linear learner internal tuning mechanism is turned off automatically. This sets the number of parallel models, num_models, to 1
+
+Automatic model tuning, also known as hyperparameter tuning, finds the best version of a model by running many jobs that test a range of hyperparameters on your dataset. You choose the tunable hyperparameters, a range of values for each, and an objective metric. You choose the objective metric from the metrics that the algorithm computes. Automatic model tuning searches the hyperparameters chosen to find the combination of values that result in the model that optimizes the objective metric. When you use automatic model tuning, the linear learner internal tuning mechanism is turned off automatically. This sets the number of parallel models, num_models, to 1.
+
 
