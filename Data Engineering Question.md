@@ -106,3 +106,9 @@ Which service should the company use?
 
 - [x] AWS DataSync.
 
+**Question 9**
+A leading news portal seeks to deliver personalized article recommendations by daily training a machine learning model using historical clickstream data. The volume of incoming data is consistent but experiences substantial spikes during major elections, leading to increased site traffic. Which architecture would ensure the most cost-effective and reliable framework for accommodating these conditions?
+
+- [x] Capture clickstream data using Amazon Kinesis Data Firehose to Amazon S3. Process the data with Amazon SageMaker for model training using Managed Spot Training. Publish results to Amazon DynamoDB for instant recommendation serving.
+- [ ] Direct clickstream data to Amazon S3 using Amazon Kinesis Data Firehose, conducting nightly analysis with AWS Glue DataBrew and Amazon SageMaker using On-Demand Instances for model training. Deploy results to DynamoDB for real-time recommendations.
+
