@@ -114,3 +114,39 @@ A healthcare analytics firm is leveraging Amazon SageMaker to train machine lear
 VPC endpoints facilitate secure and private communications between AWS services without traversing the public internet, making it the most suitable option for accessing S3 from a VPC without internet access. This aligns with AWS best practices for accessing S3 from private VPCs securely.
 
 AWS Direct Connect is used to establish a private connection between an on-premises network and AWS, not within AWS services. Moreover, it's more complex and not required for the scenario of accessing S3 from SageMaker within a VPC.
+
+**Question 13**
+A data scientist has recently initialized a new Amazon SageMaker notebook instance for a predictive modeling project, utilizing the default IAM role provided during setup. Considering the need to access datasets stored in an Amazon S3 bucket, what method governs the notebook instance's ability to interact with S3 data?
+
+- [x] Access is limited to S3 buckets with "sagemaker" in the name, unless S3FullAccess is added.
+
+**Question 14**
+A financial services firm is leveraging Amazon SageMaker to train a distributed deep learning model for fraud detection. The model training utilizes highly sensitive financial data, necessitating that data security is maintained while in-transit within a Virtual Private Cloud (VPC). What approach should be adopted to ensure that the data remains secure during its transit?
+
+- [x] Enable SSL/TLS encryption for data in-transit between SageMaker and data sources within the VPC.
+- [ ] Apply an IAM policy to SageMaker instances granting them permissions to encrypt data at rest, ensuring in-transit data security.
+
+Overall explanation
+Focus on methods that specifically secure data in-transit, differentiating between encryption, network infrastructure, and access control mechanisms.
+
+
+
+Correct Choice: Enable SSL/TLS encryption for data in-transit between SageMaker and data sources within the VPC.
+
+
+
+SSL/TLS encryption is a standard practice for securing data as it moves between systems, effectively meeting the requirement for in-transit data protection. This method directly addresses the concern of securing data in-transit without affecting data at rest or requiring changes to network topology.
+
+
+
+Incorrect Choice: Apply an IAM policy to SageMaker instances granting them permissions to encrypt data at rest, ensuring in-transit data security.
+
+
+
+IAM policies govern permissions and access control, not data encryption. While important for overall security, they do not directly secure data in-transit; instead, they are more relevant to controlling who can perform actions on specific AWS resources.
+
+**Question 15**
+An AI startup is developing a sophisticated image recognition model using TensorFlow on Amazon SageMaker. Due to the large volume of image data and the complexity of the model, training on a single GPU instance proves insufficient. How can the team scale their TensorFlow training job to efficiently utilize multiple GPUs within Amazon SageMaker?
+
+- [x] Write your model with the Horovod distributed training framework, supported by SageMaker.
+- [ ] Deploy your model to multiple EC2 P3 instances, allowing SageMaker to manage distribution.

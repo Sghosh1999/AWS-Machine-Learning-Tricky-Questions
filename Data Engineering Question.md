@@ -112,3 +112,76 @@ A leading news portal seeks to deliver personalized article recommendations by d
 - [x] Capture clickstream data using Amazon Kinesis Data Firehose to Amazon S3. Process the data with Amazon SageMaker for model training using Managed Spot Training. Publish results to Amazon DynamoDB for instant recommendation serving.
 - [ ] Direct clickstream data to Amazon S3 using Amazon Kinesis Data Firehose, conducting nightly analysis with AWS Glue DataBrew and Amazon SageMaker using On-Demand Instances for model training. Deploy results to DynamoDB for real-time recommendations.
 
+**Question 10**
+You are training SageMaker's supervised BlazingText using file mode. Which is an example of a properly formatted line within the training file?
+
+- [ ] `__label4 linux ready for prime time, intel says.`
+- [x] `__label__4 linux ready for prime time , intel says .`
+- [ ] `__label__4 Linux ready for prime time, Intel says.`
+- [ ] `__label__4 linux ready for prime time, intel says.`
+
+Attention to detail in data preparation is critical for the successful training of machine learning models, particularly in text classification tasks. In order to evaluate the options, pay attention to the correct line format for training data in Amazon SageMaker's BlazingText supervised mode, adhering to all specified requirements for label prefixing and token separation, including punctuation. In the example provided, the punctuation in the sentence "Linux ready for prime time, Intel says." includes the comma (,) after "prime time" and the period (.) at the end of the sentence.
+
+**Question 11**
+When employing Amazon SageMaker and XGBoost for the classification of a vast number of videos into genres, based on attributes of each video, the attribute data necessitates cleaning and conversion into LibSVM format before model training.
+
+- [x] Utilize PySpark alongside the XGBoostSageMakerEstimator to facilitate data preparation via Spark, subsequently transferring control to SageMaker for the training phase.
+- [x] Apply Spark on Amazon EMR for data pre-processing and save the refined results in an Amazon S3 bucket, ensuring SageMaker's access for training.
+
+Overall explanation
+In the context of classifying millions of videos into genres using Amazon SageMaker and XGBoost, the task demands not only the cleaning and transformation of video attribute data into a specific format but also efficient and scalable processing methods. The selection of appropriate pre-processing techniques is critical to manage the volume of data effectively and to ensure compatibility with the chosen machine learning framework. Two approaches stand out for their ability to parallelize data processing and seamlessly integrate with SageMaker for subsequent model training.
+
+
+Correct Choice: Utilize PySpark alongside the XGBoostSageMakerEstimator to facilitate data preparation via Spark, subsequently transferring control to SageMaker for the training phase.
+
+The integration of PySpark with SageMaker, particularly using the XGBoostSageMakerEstimator, effectively harnesses the distributed processing capabilities of Apache Spark for data preparation. This approach not only allows for the parallel processing of large datasets but also seamlessly transitions to SageMaker for model training, making it a viable solution for handling massive video attribute data.
+
+Correct Choice: Apply Spark on Amazon EMR for data pre-processing and save the refined results in an Amazon S3 bucket, ensuring SageMaker's access for training.
+
+Using Spark on Amazon EMR for data pre-processing leverages its distributed data processing feature, efficiently preparing the video attribute data. Storing the processed data in an S3 bucket facilitates easy access by SageMaker for subsequent training tasks, aligning with the requirements for efficient handling and transformation of large-scale data.
+
+Incorrect Choice: Deploy AWS Glue ETL to convert the video attribute data into LibSVM format, followed by training the model with SageMaker.
+
+Although AWS Glue ETL is proficient in data transformation tasks, it does not natively support conversion into LibSVM format. This limitation makes it an unsuitable choice for preparing data specifically for XGBoost model training within SageMaker when LibSVM format is required.
+
+**Question 12**
+
+Your organization is ingesting a data feed of subway ridership in near-real-time, where incoming data is timestamped by the minute and includes the total number of riders at each station for that minute. What is the simplest and most efficient approach for automatically sending alerts when an unusually high or low number of riders is observed?
+
+- [x] Ingest the data with Amazon Kinesis Data Firehose, utilize Random Cut Forest (RCF) in Amazon Kinesis Data Analytics for anomaly detection, and employ AWS Lambda to process the output from Kinesis Data Analytics, issuing an alert via Amazon SNS if needed.
+- [ ] Ingest the data with Amazon Kinesis Data Streams directly into Amazon S3, use Random Cut Forest in Amazon SageMaker to detect anomalies in real-time, and integrate SageMaker with Amazon SNS to issue alarms.
+
+**Question 13**
+A financial services company aims to automate the analysis of daily transaction costs, execution reporting, and market performance. The company has developed its own Big Data tools for this purpose. These tools require efficient scheduling and dynamic configuration of computing resources to manage variable workloads and data volumes. Considering the need for a scalable, flexible solution that minimizes operational overhead, which AWS service should be leveraged to configure the resources dynamically and schedule the data analytic workloads?
+
+- [x] Use AWS Batch to schedule jobs and dynamically provision resources, leveraging its integration with other AWS services for end-to-end data processing workflows.
+- [ ] Implement AWS Step Functions to coordinate multiple AWS services into serverless workflows for data processing, using AWS Lambda for dynamic resource allocation.
+
+**Question 14**
+An e-commerce company processes substantial volumes of consumer behavior data stored in HDFS by leveraging Apache Spark on Amazon EMR. This task is performed daily, and the volume of data exhibits significant seasonal fluctuations, notably spiking during holidays and major sales events. What is the most cost-effective strategy to manage these variable demands without risking data loss or the need to terminate the entire cluster?
+
+- [x] Utilize EC2 Spot instances for Spark task nodes exclusively, while employing other instance types for core and master nodes.
+- [ ] Deploy EC2 Spot instances for both core and task nodes, reserving EC2 Reserved instances for the master node only.
+- [ ] Implement EC2 Spot instances across all node types, including master, core, and task nodes.
+- [ ] Allocate reserved instances for task nodes, and employ Spot instances for core nodes.
+
+Employing EC2 Spot instances for Spark task nodes presents the most cost-effective and risk-mitigated strategy. Task nodes in an EMR cluster are responsible for processing data and do not store HDFS data, making them tolerant to interruptions. This setup ensures that data processing can scale cost-effectively with demand without risking data loss or necessitating cluster termination.
+
+
+
+Incorrect Choice: Allocate reserved instances for task nodes, and employ Spot instances for core nodes.
+
+
+
+Using reserved instances for task nodes may lead to higher costs without corresponding benefits, especially during off-peak periods. Spot instances for core nodes introduce a risk of HDFS data loss if the Spot instances are interrupted, as core nodes store data in HDFS.
+
+
+
+Incorrect Choice: Deploy EC2 Spot instances for both core and task nodes, reserving EC2 Reserved instances for the master node only.
+
+
+
+Applying EC2 Spot instances to both core and task nodes while using Reserved instances for the master node increases the risk of data loss. A Spot interruption on core nodes, which store HDFS data, could lead to data loss, contradicting the requirement to avoid such scenarios.
+
+
+
