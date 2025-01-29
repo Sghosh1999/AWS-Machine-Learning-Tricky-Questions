@@ -75,4 +75,12 @@ Which type of algorithm should the library use to implement such service?
 - [x] Content based filtering.
 - [ ] Collaborative filtering.
 
+**Question 8**
+You are creating a computer vision application to recognize truck brands. Your application uses Convolutional Neural Networks (CNN) but you do not have enough data to train the model. However, there are pre-trained third-party image recognition models available for similar tasks.
+
+What steps will you take to build your solution in the shortest possible duration?
+
+- [x] Use transfer learning in your CNN by using the pre-trained third-party image recognition model as the convolutional base. Then remove the original classifier from the pre-trained model and add the new classifier for recognizing truck brands.
+- [ ] Use transfer learning by retraining the pre-trained third-party image recognition model with your own data.
+
 

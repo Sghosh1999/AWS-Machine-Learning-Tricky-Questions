@@ -172,3 +172,65 @@ Which combination of services should the company use to extract the information 
 Amazon Textract is a machine learning service that automatically extracts text, handwriting and data from scanned documents that goes beyond simple optical character recognition (OCR) to identify and extract data from forms and tables.
 
 Amazon Comprehend is an NLP service that could extract key phrases, entities, and sentiments and much more.
+
+**Question 18**
+An ML engineer has built a deep learning model and now wants to deploy it using the SageMaker Hosting Services. For inference, the engineer wants a cost-effective option that guarantees low latency but still comes at a fraction of the cost of using a GPU instance for the endpoint.
+
+As an AWS ML Specialist, which of the following would you recommend for the given use case?
+
+- [x] Elastic Inference
+- [ ] Inference Pipeline
+- [ ] Automatic Scaling
+
+Overall explanation
+Correct option:
+
+**Elastic Inference**
+
+ML inference is the process of using a trained machine learning model to make predictions. By using Amazon Elastic Inference (EI), you can speed up the throughput and decrease the latency of getting real-time inferences from your deep learning models that are deployed as Amazon SageMaker hosted models, but at a fraction of the cost of using a GPU instance for your endpoint. Elastic Inference is supported in EI-enabled versions of TensorFlow, Apache MXNet, and PyTorch.
+
+
+**Incorrect options:**
+
+SageMaker Neo - Amazon SageMaker Neo enables developers to optimize machine learning (ML) models for inference on SageMaker in the cloud and supported devices at the edge.
+
+After training a model for high accuracy, developers often spend a lot of time and effort tuning the model for high performance. For inference in the cloud, developers often turn to large instances with lots of memory and powerful processing capabilities at higher costs to achieve better throughput. For inference on edge devices with limited compute and memory, developers often spend months hand-tuning the model to achieve acceptable performance within the device hardware constraints.
+
+Amazon SageMaker Neo automatically optimizes machine learning models for inference on cloud instances and edge devices to run faster with no loss in accuracy.
+
+SageMaker Neo cannot be used to accelerate real-time inferences calls for deep learning models that are deployed as Amazon SageMaker hosted models.
+
+**Automatic Scaling** - Amazon SageMaker supports automatic scaling (autoscaling) for your hosted models. Autoscaling dynamically adjusts the number of instances provisioned for a model in response to changes in your workload. When the workload increases, autoscaling brings more instances online. When the workload decreases, autoscaling removes unnecessary instances so that you don't pay for provisioned instances that you aren't using.
+
+Autoscaling cannot be used to accelerate real-time inferences calls for deep learning models that are deployed as Amazon SageMaker hosted models.
+
+**Inference Pipeline** - An `inference pipeline` is a Amazon SageMaker model that is composed of a linear sequence of two to fifteen containers that process requests for inferences on data. You use an inference pipeline to define and deploy any combination of pretrained SageMaker built-in algorithms and your own custom algorithms packaged in Docker containers.
+
+Inference pipeline cannot be used to accelerate real-time inferences calls for deep learning models that are deployed as Amazon SageMaker hosted models.
+
+Reference:
+
+https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html
+
+**Question 19**
+You have disabled direct internet access to your Amazon SageMaker notebook instance while connecting to your VPC in order to prevent unauthorized access to your data. As there is no data access via the internet, the notebook instance is not able to train or host models.
+
+Which of the following solutions can be used to address this issue? (Select two)
+
+- [x] Setup NAT gateway for your VPC and configure Security Groups for your VPC that allow outbound connections
+- [ ] Setup NAT gateway for your VPC along with Security Groups for your VPC that allow inbound connections
+- [ ] Setup S3 gateway for your VPC
+- [x] Create a VPC interface endpoint to use PrivateLink for your notebook instance and then configure Security Groups for your VPC that allow outbound connections 
+
+*Overall explanation*
+Correct options:
+
+Create a VPC interface endpoint to use PrivateLink for your notebook instance and then configure Security Groups for your VPC that allow outbound connections
+
+You can connect to your notebook instance from your VPC through an interface endpoint in your Virtual Private Cloud (VPC) instead of connecting over the public internet. When you use a VPC interface endpoint, communication between your VPC and the notebook instance is conducted entirely and securely within the AWS network.
+
+Setup NAT gateway for your VPC and configure Security Groups for your VPC that allow outbound connections
+
+The instances in a private subnet can access the internet by using a network address translation (NAT) gateway that resides in the public subnet.
+
+As the notebook instance is in a VPC, so the internet access is disabled. The notebook instance won't be able to train or host models unless your VPC has an interface endpoint (PrivateLink) or a NAT gateway and your security groups allow outbound connections.

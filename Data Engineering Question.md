@@ -198,3 +198,11 @@ One Kinesis video stream cannot stream data from multiple producers; therefore, 
 
 ![image](fargate_server.img)
 
+**Question 16**
+The traffic monitoring authorities at a city want to monitor the traffic at busy intersections and take corrective action at the earliest. An ML solutions company has developed a Proof-of-Concept for processing this video data and now it wants to productionalize it to cover all city intersections.
+
+As an AWS ML specialist, which of the following solutions would you recommend so that it takes the LEAST amount of development effort and ongoing maintenance effort?
+
+- [x] Analyse the incoming video streams using Kinesis Video Streams in real time and then send an alert using a downstream EC2 instance
+- [ ] Process the incoming video data using Kinesis Data Analytics to detect anomalies in real time
+
