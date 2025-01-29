@@ -183,5 +183,18 @@ Incorrect Choice: Deploy EC2 Spot instances for both core and task nodes, reserv
 
 Applying EC2 Spot instances to both core and task nodes while using Reserved instances for the master node increases the risk of data loss. A Spot interruption on core nodes, which store HDFS data, could lead to data loss, contradicting the requirement to avoid such scenarios.
 
+**Question 15**
 
+A district wants to reduce the crime rate throughout its vicinity. They hired a team of data scientists to create a model to detect sharp knives, automatic guns, pistols, or any dangerous weapon given a video stream. The data scientists used Amazon SageMaker to train 5 models and chose the best model.
+
+The district will setup 4 cameras throughout the vicinity and wants a solution where they are informed, along with the police, immediately if a person is holding a dangerous weapon in order for them to hide.
+
+Which of the following architectures is the most efficient for deployment given that they already have a containerized model, and they want a managed service to determine their compute capacity when applying inference?
+
+- [x] Four cameras sending their streams to four kinesis video streams -> The output is sent to 4 Fargate containers containing the model inference code and artifacts -> The inference output is sent to one Kinesis data streams -> Lambda function processes the output -> If a dangerous weapon is found, lambda will send to the SNS topic where the subscribers will be notified by SMS.
+- [ ] Four cameras sending their streams to four kinesis video streams -> The output is sent to 4 EC2 instances containing the model inference code and artifacts -> The inference output is sent to one Kinesis data streams -> Lambda function processes the output -> If a dangerous weapon is found, lambda will send to the SNS topic where the subscribers will be notified by SMS.
+
+One Kinesis video stream cannot stream data from multiple producers; therefore, a kinesis video stream should be setup for every producer. Fargate is used instead of EC2 instances when deploying containerized models as it can compute the capacity needed for inference and it is a managed service as well. One Kinesis Data Streams is sufficient to ingest all the inferences across all the Fargate containers.
+
+![image](fargate_server.img)
 

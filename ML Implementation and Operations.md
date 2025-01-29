@@ -150,3 +150,25 @@ An AI startup is developing a sophisticated image recognition model using Tensor
 
 - [x] Write your model with the Horovod distributed training framework, supported by SageMaker.
 - [ ] Deploy your model to multiple EC2 P3 instances, allowing SageMaker to manage distribution.
+
+**Question 16**
+A hypermarket wants to construct a computer vision model to classify different product images into 40 unique products in order to organize their warehouse using robots. An image dataset was already collected by the hypermarket and a machine learning specialist was hired for this role.
+
+The specialist trained the model on Amazon Sagemaker using its ready-made Pytorch container. The model should be deployed on a Sagemaker endpoint in which the hypermarket could request it anytime from any of its branches. The model does not use intensive GPU, however, sometimes it needs a moderate GPU processing power.
+
+What is the cheapest and most appropriate instance type that the specialist should use to deploy the model?
+
+- [x] inf2.xlarge
+- [ ] P3.2xlarge
+
+**Question 17**
+A well-known company wants to automate the process of filtering their applicants due to the large number of applicants applying each day. The company receives over 150 resumes per day. The resume includes the applicant’s name, previous/current work, previous/current education, and some other information. The company saves these resumes on an S3 bucket in the company’s VPC cloud. The company wants to extract personally identifiable information, locations, organizations, and dates from the resumes. However, the resumes are provided in PDF format not text format.
+
+Which combination of services should the company use to extract the information from the PDF resumes?
+
+- [x] Use Amazon Textract to recognize the text from the image, then use Amazon Comprehend to extract the information required.
+- [ ] Use Amazon Comprehend to recognize the text from the image, then use Amazon Textract to extract the information required.
+
+Amazon Textract is a machine learning service that automatically extracts text, handwriting and data from scanned documents that goes beyond simple optical character recognition (OCR) to identify and extract data from forms and tables.
+
+Amazon Comprehend is an NLP service that could extract key phrases, entities, and sentiments and much more.
