@@ -234,3 +234,13 @@ Setup NAT gateway for your VPC and configure Security Groups for your VPC that a
 The instances in a private subnet can access the internet by using a network address translation (NAT) gateway that resides in the public subnet.
 
 As the notebook instance is in a VPC, so the internet access is disabled. The notebook instance won't be able to train or host models unless your VPC has an interface endpoint (PrivateLink) or a NAT gateway and your security groups allow outbound connections.
+
+**Question 210**
+A company has sensitive data of its customers residing in a kms-encrypted S3 bucket. A machine learning engineer should build a classifier using Amazon SageMaker for pre-processing, training, and deployment of the model. The S3 bucket and SageMaker notebook are both located within the same VPC. The company demands that all traffic should be secured and within a private connection in the VPC.
+
+Which solution is the most appropriate to begin experimenting with the model on SageMaker?
+
+- [x] Create a VPC gateway endpoint to allow connection between S3 endpoint and SageMaker. Assign an IAM role to SageMaker and grant it read access permissions to the S3 bucket and KMS key policy.
+- [ ] Create a VPC gateway endpoint to allow connection between S3 endpoint and SageMaker. Assign an IAM role to SageMaker and grant it read access permissions to the S3 bucket.
+
+A VPC endpoint enables private connections between a virtual private cloud (VPC) and supported services. Therefore, your VPC is not exposed to the public internet. A gateway endpoint is a gateway that is a target for a route in your route table used for traffic destined to either Amazon S3 or DynamoDB. Amazon SageMaker cannot access the S3 bucket without having the appropriate role. Also, the S3 bucket is secured using Amazon KMS, therefore granting the role read permission into S3 is not enough. A KMS key policy permission should be granted to decrypt the data in S3 and begin reading it.
