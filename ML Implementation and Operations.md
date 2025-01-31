@@ -235,7 +235,7 @@ The instances in a private subnet can access the internet by using a network add
 
 As the notebook instance is in a VPC, so the internet access is disabled. The notebook instance won't be able to train or host models unless your VPC has an interface endpoint (PrivateLink) or a NAT gateway and your security groups allow outbound connections.
 
-**Question 210**
+**Question 20**
 A company has sensitive data of its customers residing in a kms-encrypted S3 bucket. A machine learning engineer should build a classifier using Amazon SageMaker for pre-processing, training, and deployment of the model. The S3 bucket and SageMaker notebook are both located within the same VPC. The company demands that all traffic should be secured and within a private connection in the VPC.
 
 Which solution is the most appropriate to begin experimenting with the model on SageMaker?

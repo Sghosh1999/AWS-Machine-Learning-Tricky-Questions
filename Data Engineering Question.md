@@ -217,3 +217,11 @@ How should a machine learning specialist meet these requirements?
 - [ ] Use AWS Database Migration Service (AWS DMS) with table mapping to select PostgreSQL tables with no sensitive data through an SSL connection. Replicate data directly into Amazon S3.
 - [ ] Use PostgreSQL logical replication to replicate all data to PostgreSQL in Amazon EC2 through AWS Direct Connect with a VPN connection. Use AWS Glue to move data from Amazon EC2 to Amazon S3.
 
+**Question 18**
+A company wants to use anomaly detection to detect whenever their servers’ sensors produce spiked readings. The company is willing to ingest real-time structured data containing features of their servers including -but not limited to- “Temperature” and “Usage”. The data is to be sent for live anomaly detection which should send an SMS to every technician if a faulty server was found.
+
+Which combination of services should the company use?
+
+- [x] Data is ingested through Kinesis Data streams -> Output is sent to Kinesis Data Analytics for anomaly detection -> Kinesis data streams digest the output -> Lambda function analyses the results and send an SMS notification using SNS.
+- [ ] Data is ingested through Kinesis Data Firehose -> Output is sent to Kinesis Data Analytics for anomaly detection -> Results are sent to a lambda function which will send SMS through SNS topics.
+
