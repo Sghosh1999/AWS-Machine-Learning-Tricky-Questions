@@ -225,3 +225,21 @@ Which combination of services should the company use?
 - [x] Data is ingested through Kinesis Data streams -> Output is sent to Kinesis Data Analytics for anomaly detection -> Kinesis data streams digest the output -> Lambda function analyses the results and send an SMS notification using SNS.
 - [ ] Data is ingested through Kinesis Data Firehose -> Output is sent to Kinesis Data Analytics for anomaly detection -> Results are sent to a lambda function which will send SMS through SNS topics.
 
+**Question 19**
+A trucking company is collecting live image data from its fleet of trucks across the globe. The data is growing rapidly and approximately 100 GB of new data is generated every day. The company wants to explore machine learning uses cases while ensuring the data is only accessible to specific IAM users.
+
+Which storage option provides the most processing flexibility and will allow access control with IAM?
+
+- [ ] Use a database, such as Amazon DynamoDB, to store the images, and set the IAM policies to restrict access to only the desired IAM users.
+- [x] Use an Amazon S3-backed data lake to store the raw images, and set up the permissions using bucket policies.
+- [ ] Setup up Amazon EMR with Hadoop Distributed File System (HDFS) to store the files, and restrict access to the EMR instances using IAM policies.
+- [ ] Configure Amazon EFS with IAM policies to make the data available to Amazon EC2 instances owned by the IAM users.
+
+**Question 20**
+A financial analytics firm receives continuous streams of transaction data, each record populated with hundreds of columns, the firm faces a challenge. A significant portion of this data is irrelevant to their machine learning model, which aims to predict transaction fraud. Additionally, certain relevant columns require minor transformations or concatenation. What is the most straightforward and storage-efficient method to preprocess this data upon its arrival?
+-[x] Transform the incoming data stream using Kinesis Data Streams and Amazon Kinesis Data Analytics
+-[ ] Trigger a Glue ETL job to transform the streaming data once it is stored in S3.
+
+Correct Choice: Transforming the incoming data stream with Kinesis Data Streams and Amazon Kinesis Data Analytics.
+
+This method is unparalleled in its ability to *filter and refine data in real-time*. Kinesis Data Analytics supports SQL for on-the-fly transformations and allows for the immediate removal or alteration of data fields, guaranteeing that only essential, preprocessed data is stored and subsequently analyzed. This not only conserves storage resources but also streamlines the analytics workflow.

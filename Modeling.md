@@ -83,4 +83,34 @@ What steps will you take to build your solution in the shortest possible duratio
 - [x] Use transfer learning in your CNN by using the pre-trained third-party image recognition model as the convolutional base. Then remove the original classifier from the pre-trained model and add the new classifier for recognizing truck brands.
 - [ ] Use transfer learning by retraining the pre-trained third-party image recognition model with your own data.
 
+**Question 9**
+A credit card company wants to build a credit scoring model to help predict whether a new credit card applicant will default on a credit card payment. The company has collected data from a large number of sources with thousands of raw attributes. Early experiments to train a classification model revealed that many attributes are highly correlated, the large number of features slows down the training speed significantly, and that there are some overfitting issues.
+
+The Data Scientist on this project would like to speed up the model training time without losing a lot of information from the original dataset.
+
+Which feature engineering technique should the Data Scientist use to meet the objectives?
+
+- [ ] Run self-correlation on all features and remove highly correlated features
+- [ ] Normalize all numerical values to be between 0 and 1
+- [x] Use an autoencoder or principal component analysis (PCA) to replace original features with new features
+- [ ] Cluster raw data using k-means and use sample data from each cluster to build a new dataset
+
+**Question 10**
+A fintech company has developed a machine learning model that classifies insurance claims into fraudulent or legitimate. Given the financial implications where the expense of processing a fraudulent claim surpasses the cost associated with investigating a potentially fraudulent claim, which evaluation metric is most appropriate for assessing the performance of this classification model to ensure optimal financial outcomes?
+-[x] Employ Amazon SageMaker Model Monitor to optimize for recall, prioritizing the identification of all potential fraudulent claims, even at the risk of higher investigation costs due to false positives.
+-[ ] Use Amazon SageMaker's automatic hyperparameter tuning focusing on precision, to decrease the occurrence of false positives in classifying claims as fraudulent.
+
+**Question 11**
+A data science team at a media monitoring company is tasked with developing a feature that aggregates and analyzes tweets from various public figures to identify trends and thematic similarities over time. Their objective is to compute embeddings for these tweets that can accurately capture semantic similarities among them, enabling a deeper understanding of the topics and sentiments expressed. Given this context, which AWS tool would be most suited to efficiently and effectively accomplish this task?
+
+-[x] Deploy an Object2Vec model using Amazon SageMaker to process and analyze tweet data.
+-[ ] Implement a solution using Amazon SageMaker BlazingText with the Skip-gram model.
+
+Correct Choice: Deploy an Object2Vec model using Amazon SageMaker to process and analyze tweet data.
+
+
+
+Object2Vec is a more versatile embedding model that excels at understanding and capturing the complex relationships within texts, making it particularly suitable for tweets. Unlike word-focused models, Object2Vec can process entire tweets as single entities, ensuring that the nuanced context and semantic connections within and between tweets are effectively captured. This capability is crucial for tasks requiring a deep understanding of text semantics, such as analyzing tweets for thematic similarities or sentiment trends, providing a more holistic and accurate representation of the data.
+
+
 

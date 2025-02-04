@@ -244,3 +244,50 @@ Which solution is the most appropriate to begin experimenting with the model on 
 - [ ] Create a VPC gateway endpoint to allow connection between S3 endpoint and SageMaker. Assign an IAM role to SageMaker and grant it read access permissions to the S3 bucket.
 
 A VPC endpoint enables private connections between a virtual private cloud (VPC) and supported services. Therefore, your VPC is not exposed to the public internet. A gateway endpoint is a gateway that is a target for a route in your route table used for traffic destined to either Amazon S3 or DynamoDB. Amazon SageMaker cannot access the S3 bucket without having the appropriate role. Also, the S3 bucket is secured using Amazon KMS, therefore granting the role read permission into S3 is not enough. A KMS key policy permission should be granted to decrypt the data in S3 and begin reading it.
+
+**Question 21**
+A technology company is in the process of developing a new voice-activated assistant device that aims to provide an interactive conversational experience to its customers, similar to Amazon's Alexa. The device needs to understand and process human speech, provide accurate responses, and execute tasks based on voice commands. Considering the company's requirements for a scalable, efficient, and reliable solution, which combination of Amazon Web Services (AWS) should be utilized to build the foundational architecture of this voice-activated assistant?
+
+-[x] Amazon Lex -> Amazon Polly
+-[ ] Amazon Transcribe -> Amazon Comprehend -> Amazon Polly
+
+Correct Choice: Amazon Lex -> Amazon Polly
+
+Lex handles both speech-to-text and conversation logic, making it a suitable first step. Polly then converts Lex's text responses back to speech, completing the voice interaction cycle. Implementing Lex involves defining intents, slots, and utterances to process user input, while Polly requires selecting a voice and formatting text for speech synthesis.
+
+**Question 22**
+A machine learning development team is in the process of deploying a custom machine learning model using Amazon SageMaker. The model has been containerized to facilitate deployment. To ensure successful deployment and operation of the custom container on Amazon SageMaker, which of the following requirements must be met by the container? (CHOOSE TWO)
+
+-[x] Must respond to /invocations and /ping requests on port 8080.
+-[x] Must accept all socket connection requests within 250 ms.
+-[ ] Must be compressed in ZIP format for deployment.
+
+**Question 23**
+A media company has installed a high-resolution camera at a popular Los Angeles venue to identify when celebrities attend events. The goal is to automatically receive notifications when a known celebrity is detected. With a focus on minimizing development effort, which combination of AWS services should be utilized to implement this solution effectively?
+
+-[x] Amazon Rekognition → Amazon SNS
+-[ ] Amazon Rekognition → Amazon Kinesis → AWS Lambda → Amazon SNS
+
+Correct Choice: Amazon Rekognition → Amazon SNS
+
+
+
+Amazon Rekognition's celebrity recognition feature streamlines the identification and tagging of well-known personalities in media, facilitating easy search and organization of large content libraries for media companies. Thus, This flow leverages Amazon Rekognition's built-in facial recognition capabilities directly linked with Amazon SNS for immediate notifications, representing the most straightforward and least development-intensive approach.
+
+Incorrect Choice: Amazon Rekognition → Amazon Kinesis → AWS Lambda → Amazon SNS
+
+
+
+Incorporating Amazon Kinesis and AWS Lambda introduces multiple steps that are unnecessary for the direct detection-to-notification workflow. While this configuration might offer benefits in more complex processing or streaming scenarios, it overshoots the requirement for simplicity and direct notification.
+
+**Question 24**
+A digital media company has developed a content recommendation engine with Amazon SageMaker, leveraging a custom inference model to enhance user engagement. After developing an improved version of the model based on offline tests, the team aims to evaluate its performance with actual users while ensuring minimal disruption and risk. What strategy should the team employ to deploy the updated model to production, allowing for real-world assessment with the least operational impact?
+
+-[x] Use Amazon SageMaker Endpoints with Production Variants to gradually roll out the updated model to a subset of users, monitoring performance and impact before a full production deployment.
+-[ ] Adjust the SageMaker Endpoint's traffic-splitting parameter to 50/50 between the current and updated model versions, then monitor user engagement metrics to determine the optimal model.
+
+Correct Choice: Use Amazon SageMaker Endpoints with Production Variants to gradually roll out the updated model to a subset of users, monitoring performance and impact before a full production deployment.
+
+
+
+SageMaker Endpoints with Production Variants allow you to deploy multiple versions of a model and gradually shift traffic between them. This is the ideal solution for the given scenario, as it enables the team to gradually roll out the updated model to a small percentage of users, monitor its performance, and then gradually increase the traffic to the updated model as they gain confidence in its performance. SageMaker Endpoints with Production Variants are useful for any scenario where you need to deploy and test multiple versions of a model in production, such as A/B testing, canary deployments, or gradual feature rollouts.
